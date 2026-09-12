@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ptcgl"
+version = "0.1.0"
+description = "Read decklists and match data from a local Pokémon TCG Live client (Windows)."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { file = "LICENSE" }
+authors = [{ name = "Pruneye" }]
+keywords = ["pokemon", "ptcgl", "tcg", "reverse-engineering"]
+classifiers = [
+    "Environment :: Console",
+    "Operating System :: Microsoft :: Windows",
+    "Programming Language :: Python :: 3",
+]
+dependencies = []
+
+[project.scripts]
+ptcgl = "ptcgl.cli:main"
+
+[tool.setuptools]
+packages = ["ptcgl"]

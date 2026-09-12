@@ -1,0 +1,16 @@
+# card index + scan caches (regenerated at runtime)
+.card-index.json
+baseline-*.json
+match-*.json
+
+# python build / install artifacts
+__pycache__/
+*.pyc
+build/
+dist/
+*.egg-info/
+
+# editors / OS
+.vscode/
+.idea/
+.DS_Store
