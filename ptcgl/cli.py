@@ -566,7 +566,10 @@ def _bootstrap_deckinfo_vtable(pid, names, valid, memscan):
     def on_hit(field_addr, _target):
         obj = field_addr - memscan.DI_NAME
         di = memscan.read_deckinfo(handle, obj, valid)
-        if di and di["deckBox"].startswith("db_"):
+        # A real loaded deck (yours or the opponent's) has a populated card list -
+        # that's the reliable signal. The deck-box cosmetic varies (e.g. the
+        # default box is "DB_TCGL-default_redblue"), so don't gate on it.
+        if di and sum(di["cards"].values()) >= 20:
             vt = memscan.read_qword(handle, obj)
             if vt and vt > 0x10000:
                 result[0] = vt
